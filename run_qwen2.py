@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, Qwen2ForCausalLM
 
-model = Qwen2ForCausalLM.from_pretrained("meta-qwen2/Qwen2-2-7b-hf")
-tokenizer = AutoTokenizer.from_pretrained("meta-qwen2/Qwen2-2-7b-hf")
+model = Qwen2ForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B")
+tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-1.5B")
 
 prompt = "Hey, are you conscious? Can you talk to me?"
 inputs = tokenizer(prompt, return_tensors="pt")
