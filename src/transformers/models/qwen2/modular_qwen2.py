@@ -143,8 +143,20 @@ class Qwen2Model(MistralModel):
         if not isinstance(past_key_values, (type(None), Cache)):
             raise ValueError("The `past_key_values` should be either a `Cache` object or `None`.")
 
+        if input_ids is not None:
+            logger.info(
+                f"input_ids shape: {input_ids.shape}, "
+                f"first 10: {input_ids.flatten()[:10]}, "
+                f"sum: {torch.sum(input_ids)}"
+            )
+
         if inputs_embeds is None:
             inputs_embeds = self.embed_tokens(input_ids)
+            logger.info(
+                f"inputs_embeds (after embedding) shape: {inputs_embeds.shape}, "
+                f"first 10: {inputs_embeds.flatten()[:10]}, "
+                f"sum: {torch.sum(inputs_embeds)}"
+            )
 
         if use_cache and past_key_values is None:
             past_key_values = DynamicCache()
