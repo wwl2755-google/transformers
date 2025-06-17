@@ -4,7 +4,7 @@ from transformers import AutoTokenizer, Qwen2ForCausalLM
 from transformers import Qwen2Config
 
 model = Qwen2ForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B")
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-1.5B")
 
 prompt = "Hello, my name is"
 inputs = tokenizer(prompt, return_tensors="pt")
